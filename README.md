@@ -19,6 +19,6 @@ Practice 2: Trigger to update a Parent object on the child(s) change
     WHEN: Student__c record is created and School__c != NULL
     OR WHEN: Student__c.School__c is changed 
     THEN: populate Student__c.School_Assigned_Timestamp__c
-    AND: fill in School__r.Last_Student_joined__c by datetime when a child Student__c record was assigned (instert and update)
+    AND: fill in School__r.Last_Student_joined__c by datetime when a child Student__c record was assigned (insert and update)
 
     TODO: improve by adding delete and undelete statements to Trigger
