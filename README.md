@@ -22,3 +22,25 @@ Practice 2: Trigger to update a Parent object on the child(s) change
     AND: fill in School__r.Last_Student_joined__c by datetime when a child Student__c record was assigned (insert and update)
 
     TODO: improve by adding delete and undelete statements to Trigger
+
+Practice 3: Async Apex
+    0. InsertStudentsFuture  - @future method to creating a single Student__c record.
+
+            anon call: InsertStudentsFuture.insertStudentFuture('future st');
+
+    1.1  SchoolInsertQueueble  - Queueable to creating a single School__c record (Parent);
+        StudentsInsertQueueable  - Queueable to creating multiple Student__c records (Childs), call from SchoolInsertQueueble.execute().
+
+        anon call: 
+        //constructor parameter: Parent Name
+            SchoolInsertQueueble queueable = new AsyncInsertSchools('Some School Name');
+            System.enqueueJob(queueable);
+
+    1.2 SchoolWithStudentsQueueable  - combined logic (Parent wit Childs in one Class).
+
+        anon call: 
+        //constructor parameters: Parent Name, Number of Childs to insert 
+            AsyncInsertSchools queueable = new AsyncInsertSchools('Queuebles joined test 2', 5);
+            System.enqueueJob(queueable);
+
+    2. SchoolDataFixBatch - Batch to populate School__c.Last_Child_Date__c = MAX(CreatedDate) from child Student__c records.

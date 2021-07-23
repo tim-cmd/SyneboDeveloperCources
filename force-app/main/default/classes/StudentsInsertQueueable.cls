@@ -1,11 +1,11 @@
-public class AsyncInsertStudentClass implements Queueable{
+public class StudentsInsertQueueable implements Queueable{
 
     private List<Student__c> students = new List<Student__c>();
     private Integer studentQuantity;
     private ID parent;
     private Student__c student;
        
-    public AsyncInsertStudentClass(ID id, Integer quantity) {
+    public StudentsInsertQueueable(ID id, Integer quantity) {
         this.studentQuantity = quantity;
         this.parent = id;
     }

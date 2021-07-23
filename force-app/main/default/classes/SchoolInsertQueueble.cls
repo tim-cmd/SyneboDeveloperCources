@@ -1,9 +1,9 @@
-public class AsyncInsertSchools implements Queueable {
+public class SchoolInsertQueueble implements Queueable{
     
     private String schoolName;
     private School__c parentSchool;
     
-    public AsyncInsertSchools(String name) {
+    public SchoolInsertQueueble(String name) {
         this.schoolName = name;
     }
     
@@ -12,7 +12,7 @@ public class AsyncInsertSchools implements Queueable {
     	insert parentSchool;
         System.debug(JSON.serialize(parentSchool));
         
-        System.enqueueJob(new AsyncInsertStudentClass(parentSchool.Id, 4));
+        System.enqueueJob(new StudentsInsertQueueable(parentSchool.Id, 4));
     }
      
 }
