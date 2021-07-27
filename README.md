@@ -60,10 +60,16 @@ Practice 3: Async Apex
 
 Practice 4:
 
-insert new Animal__c(External_Id__c='2');
+    1. Trigger to update an Animal__c record by ExternalId (get data from Web Service)
+        AnimalTrigger
+        AnimalTriggerHandler
+        AnimalsCallouts
+        AnimalServiceWrapper
 
-AnimalSyncBatch animalUpd = new AnimalSyncBatch();
-Database.executeBatch(animalUpd);
+    2. Scheduler + Batch to update existing records by ExternalId
+        AnimalSyncBatch
+        AnimalsUpdateScheduler
 
-AnimalsUpdateScheduler scheduler = new AnimalsUpdateScheduler();
-scheduler.execute(null);
+        anon to start scheduler: 
+        AnimalsUpdateScheduler scheduler = new AnimalsUpdateScheduler();
+        scheduler.execute(null);
