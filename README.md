@@ -44,4 +44,16 @@ Practice 3: Async Apex
             System.enqueueJob(queueable);
 
     2. SchoolDataFixBatch - Batch to populate School__c.Last_Child_Date__c = MAX(CreatedDate) from child Student__c records.
+        
         Generate data Anon.apex - scripts for generating test data
+        
+        Erase School's value to test: 
+            List<School__c> schools = [SELECT Id, Last_Child_Date__c FROM School__c];
+                for (School__c sc : schools){
+                sc.Last_Child_Date__c =NULL;
+                }
+                update schools;
+
+        Run Batch job:
+            SchoolDataFixBatch schoolFix = new SchoolDataFixBatch();
+            Database.executeBatch(schoolFix);
