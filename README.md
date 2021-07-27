@@ -57,3 +57,13 @@ Practice 3: Async Apex
         Run Batch job:
             SchoolDataFixBatch schoolFix = new SchoolDataFixBatch();
             Database.executeBatch(schoolFix);
+
+Practice 4:
+
+insert new Animal__c(External_Id__c='2');
+
+AnimalSyncBatch animalUpd = new AnimalSyncBatch();
+Database.executeBatch(animalUpd);
+
+AnimalsUpdateScheduler scheduler = new AnimalsUpdateScheduler();
+scheduler.execute(null);

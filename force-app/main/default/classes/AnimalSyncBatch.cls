@@ -1,10 +1,10 @@
-public class AnimalTriggerHandler {
+global class AnimalSyncBatch implements Database.Batchable<sObject>, Database.Stateful, Database.AllowsCallouts {
+		
+    List<Animal__c> animalListToUpsert = new List<Animal__c>();
     
-    @future(callout=true)
-    public static void getAnimalData(List<String> ids){
+    global Database.QueryLocator start(Database.BatchableContext bc) {
         List<String> externalIds = new List<String>();
-        List<Animal__c> animalList = [SELECT Id, External_Id__c FROM Animal__c WHERE Id IN :ids];
-        List<Animal__c> animalListToUpsert = new List<Animal__c>();
+        List<Animal__c> animalList = [SELECT Id, External_Id__c FROM Animal__c WHERE External_Id__c!=NULL];
         
         
         for (Animal__c animal : animalList){
@@ -27,7 +27,23 @@ public class AnimalTriggerHandler {
         }
        	System.debug('animalListToUpsert: '+ animalListToUpsert);
         
+        
+            
+         return Database.getQueryLocator('SELECT Id, External_Id__c FROM Animal__c WHERE External_Id__c!=NULL');
+    }
+    
+    global void execute(Database.BatchableContext bc, List<sObject> scope){
+        
         upsert animalListToUpsert External_Id__c;
     }
+    
+    global void finish(Database.BatchableContext bc){
         
+        AsyncApexJob job = [SELECT Id, Status, NumberOfErrors,
+            JobItemsProcessed,
+            TotalJobItems, CreatedBy.Email
+            FROM AsyncApexJob
+            WHERE Id = :bc.getJobId()];
+        System.debug(JSON.serialize(job));
+    }
 }
