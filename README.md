@@ -73,3 +73,17 @@ Practice 4:
         anon to start scheduler: 
         AnimalsUpdateScheduler scheduler = new AnimalsUpdateScheduler();
         scheduler.execute(null);
+
+Practice 5:
+    Postman collection: https://www.getpostman.com/collections/aa2729d9a95c22071384
+    
+    AnimalRestResource - main class
+        WebService URL:  https://animals-rest-resource-developer-edition.eu40.force.com/services/apexrest/Animals/
+
+        GET : specify SF Id or External Id at the end of URL  to get a specific Animal__c record OR left it blank to get all Animals
+        POST : specify externalId as a parameter and JSON body parameters name, eats, says to upsert a record in SF
+                {
+                "name":"turtle",
+                "eats":"weed",
+                "says":"hhhhr"
+                }

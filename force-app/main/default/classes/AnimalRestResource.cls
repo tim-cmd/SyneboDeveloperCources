@@ -29,11 +29,14 @@ global without sharing class AnimalRestResource {
     }
     
     @HttpPost
-    global static ID createAnimal(String name, String eats, String says) {
+    global static Animal__c createAnimal(String name, String eats, String says) {
             
-        RestRequest contactRequest = RestContext.request;
-        String contactRequestURI = contactRequest.requestURI;
-        String externalId = contactRequestURI.substring(contactRequestURI.lastIndexOf('/') + 1);
+        RestRequest animalRequest = RestContext.request;
+        
+        String externalId = animalRequest.params.get('externalId');      
+
+//        String animalRequestURI = animalRequest.requestURI;
+//        String externalId = contactRequestURI.substring(contactRequestURI.lastIndexOf('/') + 1);
             
         Animal__c thisAnimal = new Animal__c(
             Name = name,
@@ -41,7 +44,7 @@ global without sharing class AnimalRestResource {
             Eats__c = eats,
             Says__c = says);
         upsert thisAnimal External_Id__c;
-        return thisAnimal.Id;
+        return thisAnimal;
  
     }
     
