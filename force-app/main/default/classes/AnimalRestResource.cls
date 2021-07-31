@@ -37,15 +37,28 @@ global without sharing class AnimalRestResource {
 
 //        String animalRequestURI = animalRequest.requestURI;
 //        String externalId = contactRequestURI.substring(contactRequestURI.lastIndexOf('/') + 1);
-            
-        Animal__c thisAnimal = new Animal__c(
-            Name = name,
-            External_Id__c = externalId,
-            Eats__c = eats,
-            Says__c = says);
-        upsert thisAnimal External_Id__c;
-        return thisAnimal;
- 
+
+        List<Animal__c> animalsInternal = [SELECT External_Id__c FROM Animal__c WHERE External_Id__c = :externalId];
+        String responceExternalId;
+
+            if (animalsInternal.size() == 0){
+                AnimalServiceWrapper animalWrap = AnimalServiceWrapper.parse(AnimalsCallouts.makeGetDataCallout(externalId));            
+                System.debug('received animal name: ' + animalWrap.animal.name);
+                responceExternalId = animalWrap.animal.id;
+            }
+            if(!(responceExternalId.equalsIgnoreCase('0'))){
+                Animal__c thisAnimal = new Animal__c (External_Id__c = externalId);             
+                insert  thisAnimal;
+                return thisAnimal;
+            } else {
+                    Animal__c thisAnimal = new Animal__c(
+                        Name = name,
+                        External_Id__c = externalId,
+                        Eats__c = eats,
+                        Says__c = says);
+                    upsert thisAnimal External_Id__c;
+                    return thisAnimal;
+                }
     }
     
 }

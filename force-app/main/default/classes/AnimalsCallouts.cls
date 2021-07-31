@@ -10,7 +10,7 @@ public class AnimalsCallouts {
         if (response.getStatusCode() == 200) {
             String results = response.getBody();
             System.debug('JSON body: ' + results);
-            return results;
+            return results;            
         }
         return 'not 200 responce code';
     }
