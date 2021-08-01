@@ -2,7 +2,7 @@
 public class SchoolWithStudentsQueueableTest {
 	
     @isTest
-    static void testQuequble(){
+    static void testQueueable(){
         
         Test.startTest(); 
         SchoolWithStudentsQueueable queueable = new SchoolWithStudentsQueueable('Queuebles Unit test', 5);
