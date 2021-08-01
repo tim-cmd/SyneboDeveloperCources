@@ -55,5 +55,12 @@ public class TestDataFactory {
         return firstStudent.Id;
 
     }
+    
+    public static Animal__c createAnimal(String externalId, String name){
+        Animal__c anim = new Animal__c (External_Id__c = externalId,
+                                       Name = name);
+        insert anim;
+        return anim;
+    }
 
 }

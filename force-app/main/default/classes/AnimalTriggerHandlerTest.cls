@@ -22,8 +22,7 @@ private class AnimalTriggerHandlerTest {
         
         // Call method to test
        	Test.startTest();
-        Animal__c anim = new Animal__c (External_Id__c = '99');
-        insert anim;
+        Animal__c anim = TestDataFactory.createAnimal('99', null);
         Test.stopTest();
         
         Animal__c result = [SELECT ID, External_Id__c, Name, Eats__c, Says__c FROM Animal__c WHERE External_Id__c = '99' LIMIT 1];
