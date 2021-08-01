@@ -1,11 +1,14 @@
 SF org Credentials:
-Username: artemlysechko@wise-koala-616r8y.com
-Password: odessa2021
+    
+    Username: artemlysechko@wise-koala-616r8y.com
+    Password: odessa2021
 
 json for extention:
-[{"Name":"DevCourses.SM21.Artem","SfName":"artemlysechko@wise-koala-616r8y.com","Password":"odessa2021","GroupId":"Require","Description":"","orgId":"","Type":{"Id":"Production","Domain":"https://login.salesforce.com/","LP":"HOME","landingPageOtherUrl":""}}]
+    
+    [{"Name":"DevCourses.SM21.Artem","SfName":"artemlysechko@wise-koala-616r8y.com","Password":"odessa2021","GroupId":"Require","Description":"","orgId":"","Type":{"Id":"Production","Domain":"https://login.salesforce.com/","LP":"HOME","landingPageOtherUrl":""}}]
 
 Practice 1: 
+    
     Creating Objects and Fields
      School__c
         Class__c
@@ -24,6 +27,7 @@ Practice 2: Trigger to update a Parent object on the child(s) change
     TODO: improve by adding delete and undelete statements to Trigger
 
 Practice 3: Async Apex
+    
     0. InsertStudentsFuture  - @future method to creating a single Student__c record.
 
             anon call: InsertStudentsFuture.insertStudentFuture('future st');
@@ -89,6 +93,7 @@ Practice 5:
                 }
 
 Practice 6: Unit testing
+    
     Pr2: StudentTriggerHandlerTest, TestDataFactory
     Pr3: InsertStudentsFutureTest,  SchoolWithStudentsQueueableTest, SchoolDataFixBatchTest
     Pr4: 
