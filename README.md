@@ -96,4 +96,4 @@ Practice 6: Unit testing
     
     Pr2: StudentTriggerHandlerTest, TestDataFactory
     Pr3: InsertStudentsFutureTest,  SchoolWithStudentsQueueableTest, SchoolDataFixBatchTest
-    Pr4: 
+    Pr4: AnimalsCalloutsTest, AnimalTriggerHandlerTest, AnimalsUpdateSchedulerTest
