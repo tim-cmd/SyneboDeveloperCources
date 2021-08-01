@@ -1,7 +1,7 @@
 global class InsertStudentsFuture {
     
     @future
-    public static void insertStudentFuture(String name) {
+    public static void createStudent(String name) {
     	Student__c student = new Student__c(Name = name);
         insert student;
                 

@@ -30,7 +30,7 @@ public class SchoolWithStudentsQueueable implements Queueable {
             students.add(student);
         }
         insert students;
-        System.debug('Sdudents created: ' + JSON.serialize(students));
+        System.debug('Students created: ' + JSON.serialize(students));
     }
     
     public void execute(QueueableContext context) {

@@ -7,8 +7,7 @@ public class AnimalServiceWrapper {
 		public String eats;
 		public String says;
 	}
-
-	
+		
 	public static AnimalServiceWrapper parse(String json) {
 		return (AnimalServiceWrapper) System.JSON.deserialize(json, AnimalServiceWrapper.class);
 	}

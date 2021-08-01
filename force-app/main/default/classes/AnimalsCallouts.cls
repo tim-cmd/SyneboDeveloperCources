@@ -12,6 +12,6 @@ public class AnimalsCallouts {
             System.debug('JSON body: ' + results);
             return results;            
         }
-        return 'not 200 responce code';
+        return 'not 200 response code';
     }
 }

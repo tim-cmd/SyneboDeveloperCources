@@ -40,7 +40,7 @@ Practice 3: Async Apex
 
         anon call: 
         //constructor parameters: Parent Name, Number of Childs to insert 
-            AsyncInsertSchools queueable = new AsyncInsertSchools('Queuebles joined test 2', 5);
+            SchoolWithStudentsQueueable queueable = new SchoolWithStudentsQueueable('Queuebles joined test 2', 5);
             System.enqueueJob(queueable);
 
     2. SchoolDataFixBatch - Batch to populate School__c.Last_Child_Date__c = MAX(CreatedDate) from child Student__c records.
@@ -87,3 +87,8 @@ Practice 5:
                 "eats":"weed",
                 "says":"hhhhr"
                 }
+
+Practice 6: Unit testing
+    Pr2: StudentTriggerHandlerTest, TestDataFactory
+    Pr3: InsertStudentsFutureTest,  SchoolWithStudentsQueueableTest, SchoolDataFixBatchTest
+    Pr4: 

@@ -1,6 +1,6 @@
 global class AnimalSyncBatch implements Database.Batchable<sObject>, Database.AllowsCallouts {
     
-    List<String> externalIds = new List<String>();  
+    List<String> externalIds = new List<String>(); 
     List<Animal__c> animalListToUpsert = new List<Animal__c>();
 
     global Database.QueryLocator start(Database.BatchableContext bc) {
