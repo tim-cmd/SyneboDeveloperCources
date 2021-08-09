@@ -7,16 +7,15 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     
     <lightning:card iconName ="utility:animal_and_nature" title = "Animals List">
-    
-    
+        
     	<lightning:layout>
    			<lightning:layoutItem size = "5" padding = "around-smal">
-                <div style="height: 70px">
+                <div style="border: 3px; padding: 5px">
         		<lightning:input value= "{! v.inputId }" 
                          		label="Animal ID" 
                          		placeholder="Animal Id" />
                 </div>
-        		<div style="height: 50px">
+        		<div style="border: 3px; padding: 10px" align="right">
     			<lightning:button variant="brand" 
                           		  label="Search" 
                           		  title="Search Animal" 
@@ -25,7 +24,7 @@
    			</lightning:layoutItem>
    		</lightning:layout>
     
-        <div style="height: 300px">
+        <div>
         <lightning:datatable
                 keyField="id"
                 data="{! v.animalsList }"
