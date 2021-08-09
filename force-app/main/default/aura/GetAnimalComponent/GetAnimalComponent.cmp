@@ -1,0 +1,37 @@
+<aura:component controller="GetAnimalCMPController" implements="flexipage:availableForAllPageTypes" access="global">
+    
+    <aura:attribute name = "animalsList" type="Animal__c[]" /> 
+    <aura:attribute name = "columnsToDisplay" type="List" /> 
+    <aura:attribute name = "inputId" type="String" /> 
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <lightning:card iconName ="utility:animal_and_nature" title = "Animals List">
+    
+    
+    	<lightning:layout>
+   			<lightning:layoutItem size = "5" padding = "around-smal">
+                <div style="height: 70px">
+        		<lightning:input value= "{! v.inputId }" 
+                         		label="Animal ID" 
+                         		placeholder="Animal Id" />
+                </div>
+        		<div style="height: 50px">
+    			<lightning:button variant="brand" 
+                          		  label="Search" 
+                          		  title="Search Animal" 
+                          		  onclick="{!c.searchAnimals }" />
+                </div>
+   			</lightning:layoutItem>
+   		</lightning:layout>
+    
+        <div style="height: 300px">
+        <lightning:datatable
+                keyField="id"
+                data="{! v.animalsList }"
+                columns="{! v.columnsToDisplay }"
+                hideCheckboxColumn="true"/>
+    	</div>
+    </lightning:card>
+    
+</aura:component>

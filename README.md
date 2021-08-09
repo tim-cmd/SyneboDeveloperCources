@@ -98,3 +98,11 @@ Practice 6: Unit testing
     Pr3: InsertStudentsFutureTest,  SchoolWithStudentsQueueableTest, SchoolDataFixBatchTest
     Pr4: AnimalsCalloutsTest, AnimalTriggerHandlerTest, AnimalsUpdateSchedulerTest
     Pr5: AnimalRestResourceTest
+
+Practice 7: Aura Componets
+
+    GetAnimalComponent.cmp
+    GetAnimalComponentController.js
+    GetAnimalComponentHelper.js
+    GetAnimalCMPController.apxc
+    GetAnimalCMPControllerTest.apxc
