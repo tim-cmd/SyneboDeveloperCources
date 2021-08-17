@@ -1,68 +1,70 @@
 <template>
-    <div class="slds-m-around_medium">
-      
-      <div class="slds-m-bottom_small">
-          <lightning-input type="text"
-             value={searchValue}
-             label="Animal ID"
-             onchange={searchKeyword}
-             ></lightning-input>
-       </div>
-       
-       <lightning-button label="Search"
-          onclick={handleSearchKeyword}
-          variant="brand"></lightning-button>
-          
-          <template if:true={animalRecords}>
-            <template for:each={animalRecords} for:item="animal">
-                <p key={animal.Id}> text: {contact.Name}</p>
-            </template>
-        </template>
+    <lightning-card title="Search Animal LWC" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <div class="slds-m-bottom_small">
+                <lightning-input type="text"
+                   value={searchValue}
+                   label="Animal ID"
+                   onchange={searchKeyword}
+                   ></lightning-input>
+             </div>
+            <p class="slds-m-bottom_small">
+                <lightning-button label="Search" variant="brand" onclick={handleSearchKeyword}></lightning-button>
+            </p>
             <!--
-       <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-m-top_small">
-          <thead>
-             <tr class="slds-line-height_reset">
-                <th class="" scope="col">
-                   <div class="slds-truncate" title="Name">Name</div>
-                </th>
-                <th class="" scope="col">
-                   <div class="slds-truncate" title="Eats">Eats</div>
-                </th>
-                <th class="" scope="col">
-                   <div class="slds-truncate" title="Says">Says</div>
-                </th>
-                <th class="" scope="col">
-                   <div class="slds-truncate" title="External ID">External ID</div>
-                </th>
-             </tr>
-          </thead>
-          
-        
-          <tbody>   
-            <template if:true={animalRecords}> 
-                <template for:each={animalRecords} for:item="animal">
-                    <tr class="slds-hint-parent" key={animal.Id}>
-                    <td>
-                        <div class="slds-truncate">{animal.Name}</div>
-                    </td>
-                    <td>
-                        <div class="slds-truncate">{animal.Eats__c}</div>
-                    </td>
-                    <td>
-                        <div class="slds-truncate">
-                            <lightning-formatted-phone value={animal.Says__c} ></lightning-formatted-phone>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="slds-truncate">
-                            <lightning-formatted-email value={animal.External_Id__c} ></lightning-formatted-email>
-                        </div>
-                    </td>
-                    </tr>
+            <template if:true={animals}>
+                <template for:each={animals} for:item="animal">
+                    <p key={animal.Id}>{animal.Name}</p>
                 </template>
-             </template>
-          </tbody>
-       </table>
-       -->
-    </div>
- </template>
+            </template>
+            
+            <template if:true={error}>
+                <div>Errors: {error}</div>
+            </template>
+            -->
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-m-top_small">
+                    <thead>
+                       <tr class="slds-line-height_reset">
+                          <th class="" scope="col">
+                             <div class="slds-truncate" title="Name">Name</div>
+                          </th>
+                          <th class="" scope="col">
+                             <div class="slds-truncate" title="Eats">Eats</div>
+                          </th>
+                          <th class="" scope="col">
+                             <div class="slds-truncate" title="Says">Says</div>
+                          </th>
+                          <th class="" scope="col">
+                             <div class="slds-truncate" title="External ID">External ID</div>
+                          </th>
+                       </tr>
+                    </thead>
+                    
+                  
+                    <tbody>   
+                      <template if:true={animals}> 
+                          <template for:each={animals} for:item="animal">
+                              <tr class="slds-hint-parent" key={animal.Id}>
+                              <td>
+                                  <div class="slds-truncate">{animal.Name}</div>
+                              </td>
+                              <td>
+                                  <div class="slds-truncate">{animal.Eats__c}</div>
+                              </td>
+                              <td>
+                                  <div class="slds-truncate">{animal.Says__c}</div>
+                              </td>
+                              <td>
+                                  <div class="slds-truncate">{animal.External_Id__c}</div>
+                              </td>
+                              </tr>
+                          </template>
+                       </template>
+                    </tbody>
+                 </table>
+
+
+            
+        </div>
+    </lightning-card>
+</template>
