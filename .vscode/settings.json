@@ -4,7 +4,7 @@
     "**/bower_components": true,
     "**/.sfdx": true
   },
-  "salesforcedx-vscode-apex.java.home":"C:\\Program Files\\Java\\jdk-16.0.1",
+  "salesforcedx-vscode-apex.java.home":"C:\\Program Files\\Java\\jdk-8",
   "salesforcedx-vscode-core.show-cli-success-msg": true,
   "salesforcedx-vscode-core.retrieve-test-code-coverage": true
 }

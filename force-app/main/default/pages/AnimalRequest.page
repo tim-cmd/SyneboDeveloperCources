@@ -1,0 +1,33 @@
+<apex:page standardController="Animal__c" extensions="SearchAnimalVFController">
+    <apex:form >
+        <apex:pageBlock title="Search Animal">
+            <apex:pageBlockSection columns="1">
+                <apex:inputField value="{!Animal__c.External_Id__c}"/>
+                <!--<apex:commandButton title="Search" value="Search" onclick="{!search}"/>-->
+            </apex:pageBlockSection>
+            <!--
+            <apex:pageBlockSection >
+             <apex:outputText value="JSON raw: {!search}"/>
+            </apex:pageBlockSection>
+            -->
+            <apex:pageblock title="REST Data">
+            	<apex:dataTable value="{!anim}" var="an" columns="4" align="center" columnsWidth="300px,300px,300px,300px">
+                    <apex:column headerValue="Name" value="{!an.name}"/>
+                    <apex:column headerValue="Eats" value="{!an.Eats}"/>
+                    <apex:column headerValue="Says" value="{!an.Says}"/>
+                    <apex:column headerValue="External Id" value="{!an.Id}"/>
+            	</apex:dataTable>
+            </apex:pageblock>
+            <!--
+            <apex:pageblock >
+        		<div>
+                    <div><apex:outputText value="Name: {!Name}"/></div>
+                    <div><apex:outputText value="Eats: {!Eats}"/></div>
+                    <div><apex:outputText value="Says: {!Says}"/></div>
+                    <div><apex:outputText value="External Id: {!ExternalId}"/></div>
+                </div>
+    		</apex:pageblock>
+            -->       
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
