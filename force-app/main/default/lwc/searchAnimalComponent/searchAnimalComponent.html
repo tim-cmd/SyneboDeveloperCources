@@ -22,6 +22,7 @@
                 <div>Errors: {error}</div>
             </template>
             -->
+            <template if:true={animals}>
                 <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-m-top_small">
                     <thead>
                        <tr class="slds-line-height_reset">
@@ -62,9 +63,7 @@
                        </template>
                     </tbody>
                  </table>
-
-
-            
+            </template> 
         </div>
     </lightning-card>
 </template>
