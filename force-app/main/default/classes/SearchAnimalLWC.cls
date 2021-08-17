@@ -1,14 +1,14 @@
-public with sharing class SearchAnimalLwcController {
+public without sharing class SearchAnimalLWC {
 	@AuraEnabled(cacheable=true)
-    public static List<Animal__c> getContactList(string searchKey) {
+    public static List<Animal__c> getAnimalList(string searchKey) {
         //string searchKeyword = '%' + searchKey + '%';
-		
+		System.debug('SearchAnimalLWC ==> searchKey: ' + searchKey);
        // create contact list to store search result 
         List<Animal__c> animalList = new List<Animal__c>();
      
 	   // query contact records
-        for (Animal__c animal_i : [Select id,Name,Says__c,Eats__C,External_Id__c
-                            From Animal__c
+        for (Animal__c animal_i : [SELECT Name, Eats__c, Says__c, External_Id__c
+                            FROM Animal__c
                             WHERE External_Id__c = :searchKey]){
            animalList.add(animal_i);
         }
@@ -16,7 +16,7 @@ public with sharing class SearchAnimalLwcController {
          if(animalList.size() == 0){
             throw new AuraHandledException('No Record Found..'); 
          }
-         
+         System.debug('SearchAnimalLWC ==> return: ' + animalList);
         return animalList;
     }
 }
