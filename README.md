@@ -99,10 +99,24 @@ Practice 6: Unit testing
     Pr4: AnimalsCalloutsTest, AnimalTriggerHandlerTest, AnimalsUpdateSchedulerTest
     Pr5: AnimalRestResourceTest
 
-Practice 7: Aura Componets
+Practice 7: Aura Componets (Search Animal by ID)
 
     GetAnimalComponent.cmp
     GetAnimalComponentController.js
     GetAnimalComponentHelper.js
     GetAnimalCMPController.apxc
     GetAnimalCMPControllerTest.apxc
+
+Practice 8: LWC table. (Search Animal by ID)
+
+    searchAnimalComponent
+    SearchAnimalLWC.apxc
+
+Practice 9: add button: Create with prediefined values 
+
+    searchAnimalComponent
+
+Practice 10: VisualForce Page. Get external data by External_Id__c. Page on record Animal record detail layout
+
+    AnimalRequest.page
+    SearchAnimalVFController.apxc
